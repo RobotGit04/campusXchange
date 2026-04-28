@@ -3,389 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | CampusXchange - Everything You Need, Already On Campus</title>
+    <title>CampusXchange | The Verified Student Ecosystem</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons via CDN for simplicity in demo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: var(--white); }
+        .hero-section {
+            padding: 100px 40px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero-title span { color: var(--primary-red); }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(229, 9, 20, 0.4);
+        }
+        .btn-secondary {
+            background: white;
+            color: var(--primary-black);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--gray-200);
+            transition: var(--transition-fast);
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary-black);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .feature-card {
+            background: var(--gray-50);
+            padding: 40px 32px;
+            border-radius: var(--radius-xl);
+            text-align: left;
+            transition: var(--transition-fast);
+            border: 1px solid var(--gray-100);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary-red);
+            box-shadow: var(--shadow-sm);
+        }
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .feature-desc {
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <a href="#dashboard" class="logo-container">
-                <div class="logo-x">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Upper Red Arm -->
-                        <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
-                        <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
-                        <!-- Lower Black Arm -->
-                        <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
-                        <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
-                    </svg>
-                </div>
-                <div class="logo-text"><span>Campus</span><span>Xchange</span></div>
-            </a>
-
-            <nav class="nav-list">
-                <div class="nav-item"><a href="#dashboard" class="nav-link active"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></div>
-                <div class="nav-item"><a href="#browse" class="nav-link"><i data-lucide="search"></i> <span>Browse Items</span></a></div>
-                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="list"></i> <span>My Listings</span></a></div>
-                <div class="nav-item"><a href="#chat" class="nav-link"><i data-lucide="message-square"></i> <span>Messages</span></a></div>
-                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="heart"></i> <span>Saved Items</span></a></div>
-                <div class="nav-item"><a href="#dashboard" class="nav-link"><i data-lucide="repeat"></i> <span>Transactions</span></a></div>
-                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="star"></i> <span>Ratings</span></a></div>
-                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="user"></i> <span>My Profile</span></a></div>
-                <div class="nav-item"><a href="#admin" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></div>
-            </nav>
-
-            <div class="nav-item logout-link">
-                <a href="landing.html" class="nav-link"><i data-lucide="log-out"></i> <span>Logout</span></a>
+    <nav class="navbar">
+        <div class="logo-container" style="margin-bottom: 0;">
+            <div class="logo-x" style="width: 24px; height: 24px;">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                    <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                    <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                    <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                </svg>
             </div>
-        </aside>
+            <div class="logo-text" style="font-size: 1.25rem;"><span>Campus</span><span>Xchange</span></div>
+        </div>
+        <div style="display:flex; gap:16px;">
+            <a href="login.html" style="text-decoration:none; color:var(--primary-black); font-weight:600; padding:10px 20px;">Log In</a>
+            <a href="login.html" style="text-decoration:none; background:var(--primary-black); color:white; font-weight:600; padding:10px 24px; border-radius:20px;">Sign Up</a>
+        </div>
+    </nav>
 
-        <!-- Main Dashboard Area -->
-        <main class="main-content">
+    <main>
+        <section class="hero-section">
+            <div style="display:inline-flex; align-items:center; gap:8px; background:var(--gray-50); padding:8px 16px; border-radius:30px; font-weight:600; font-size:0.9rem; margin-bottom:24px; border:1px solid var(--gray-200);">
+                <i data-lucide="shield-check" size="16" color="#10B981"></i> Verified University Emails Only
+            </div>
+            <h1 class="hero-title">Everything You Need,<br>Already On <span>Campus.</span></h1>
+            <p class="hero-subtitle">The ultimate student super-platform. Buy, sell, rent, borrow, or ask for urgent help from verified students at your university.</p>
             
-            <!-- Top Header -->
-            <header class="top-header">
-                <div class="search-bar">
-                    <i data-lucide="search" size="18" stroke-width="2.5"></i>
-                    <input type="text" placeholder="Search for items, books, Laptops...">
-                </div>
-
-                <div class="header-actions">
-                    <button class="post-btn">Post Item</button>
-                    <button class="icon-btn">
-                        <i data-lucide="bell"></i>
-                        <span class="notification-dot"></span>
-                    </button>
-                    <div class="user-avatar">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User Profile">
-                    </div>
-                </div>
-            </header>
-
-            <!-- Dashboard Content -->
-            <div id="app-content">
-            <div class="dashboard-view">
-
-                <!-- Brand Showcase Banner (Extra Section) -->
-                <section class="showcase-banner">
-                    <div class="showcase-grid">
-                        <div class="brand-showcase">
-                            <h2>Campus<span>Xchange</span></h2>
-                            <p>Everything You Need, Already On Campus.</p>
-                            <div style="display: flex; gap: 16px;">
-                                <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-100); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">
-                                    <i data-lucide="shield-check" style="color: #10B981;"></i> Verified Students Only
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-100); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">
-                                    <i data-lucide="map-pin" style="color: var(--primary-red);"></i> On-Campus Trade
-                                </div>
-                            </div>
-                        </div>
-                        <div class="logo-visual">
-                            <div class="orbit-container">
-                                <div class="orbiting-node node-1"><i data-lucide="book-open"></i></div>
-                                <div class="orbiting-node node-2"><i data-lucide="laptop"></i></div>
-                                <div class="orbiting-node node-3"><i data-lucide="flask-conical"></i></div>
-                                <div class="orbiting-node node-4"><i data-lucide="calculator"></i></div>
-                                <div class="orbiting-node node-5"><i data-lucide="armchair"></i></div>
-                                <div class="orbiting-node node-6"><i data-lucide="home"></i></div>
-                            </div>
-                            <div class="giant-x">
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
-                                    <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
-                                    <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
-                                    <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Welcome Section -->
-                <section class="welcome-sec">
-                    <h1>Welcome back, Aryan 👋</h1>
-                    <p>You have 3 new messages and a listing expiring soon.</p>
-                </section>
-
-                <!-- Stats Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon"><i data-lucide="layout"></i></div>
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Active Listings</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i data-lucide="mail"></i></div>
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">New Messages</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i data-lucide="heart"></i></div>
-                        <div class="stat-value">24</div>
-                        <div class="stat-label">Saved Items</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i data-lucide="trending-up"></i></div>
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Transactions</div>
-                    </div>
-                </div>
-
-                <!-- My Active Listings -->
-                <div class="section-header">
-                    <h2>My Active Listings</h2>
-                    <a href="#" class="see-all">Manage All</a>
-                </div>
-
-                <div class="items-grid">
-                    <!-- Laptop Card -->
-                    <div class="item-card">
-                        <div class="badge active">ACTIVE</div>
-                        <div class="badge condition">EXCELLENT</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <!-- Image URL will be injected via JS or directly if known -->
-                            <img src="laptop_product_1777392447151.png" alt="Laptop">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Electronics</div>
-                            <div class="item-title">MacBook Air M1 - Silver</div>
-                            <div class="item-price">₹55,000</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">0.8 km away</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Books Card -->
-                    <div class="item-card">
-                        <div class="badge active">ACTIVE</div>
-                        <div class="badge condition">GOOD</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="books_product_1777392577013.png" alt="Engineering Books">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Textbooks</div>
-                            <div class="item-title">Engineering Mechanics Bundle</div>
-                            <div class="item-price">₹1,200</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">Hostel B</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lab Coat Card -->
-                    <div class="item-card">
-                        <div class="badge active">ACTIVE</div>
-                        <div class="badge condition">NEW</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="lab_coat_product_1777392875195.png" alt="Lab Coat">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Essentials</div>
-                            <div class="item-title">Standard White Lab Coat</div>
-                            <div class="item-price">₹450</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">1.2 km away</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Study Table Card -->
-                    <div class="item-card">
-                        <div class="badge active">ACTIVE</div>
-                        <div class="badge condition">EXCELLENT</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="study_table_product_1777392965322.png" alt="Study Table">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Furniture</div>
-                            <div class="item-title">Compact Wooden Study Desk</div>
-                            <div class="item-price">₹2,800</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">Hostel C</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions Panel -->
-                <div class="section-header">
-                    <h2>Quick Actions</h2>
-                </div>
-                <div class="quick-grid">
-                    <div class="quick-action-card post" onclick="window.location.hash='#post'">
-                        <i data-lucide="plus-circle" size="32"></i>
-                        <h3>Post an Item</h3>
-                    </div>
-                    <div class="quick-action-card browse" onclick="window.location.hash='#browse'">
-                        <i data-lucide="search" size="32"></i>
-                        <h3>Browse Items</h3>
-                    </div>
-                    <div class="quick-action-card emergency" onclick="window.location.hash='#emergency'">
-                        <i data-lucide="alert-circle" size="32" style="color: #EF4444;"></i>
-                        <h3 style="color: #B91C1C;">Emergency Needs</h3>
-                    </div>
-                    <div class="quick-action-card donate" onclick="window.location.hash='#browse'">
-                        <i data-lucide="gift" size="32" style="color: #10B981;"></i>
-                        <h3 style="color: #065F46;">Donate an Item</h3>
-                    </div>
-                </div>
-
-                <!-- Recommended For You -->
-                <div class="section-header">
-                    <h2>Recommended For You</h2>
-                    <a href="#" class="see-all">View Suggestions</a>
-                </div>
-                <div class="items-grid">
-                    <!-- Backpack -->
-                    <div class="item-card">
-                        <div class="badge condition">LIKE NEW</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="backpack_product_1777393026909.png" alt="Backpack">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Accessories</div>
-                            <div class="item-title">Durable Campus Backpack</div>
-                            <div class="item-price">₹1,500</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sara" alt="Seller">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">0.5 km away</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Calculator -->
-                    <div class="item-card">
-                        <div class="badge condition">GOOD</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="calculator_product_1777393287192.png" alt="Calculator">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Electronics</div>
-                            <div class="item-title">Scientific Calculator FX-991ES</div>
-                            <div class="item-price">₹800</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" alt="Seller">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">Hostel D</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cycle (Placeholder as generation failed but we'll use a neat box) -->
-                    <div class="item-card">
-                         <div class="badge condition">EXCELLENT</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image skeleton">
-                            <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--gray-400);">
-                                <i data-lucide="bike" size="48"></i>
-                            </div>
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Transportation</div>
-                            <div class="item-title">Hercules Geared Cycle</div>
-                            <div class="item-price">₹4,500</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Cycle" alt="Seller">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">2.1 km away</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bundle -->
-                    <div class="item-card">
-                        <div class="badge condition">LIKE NEW</div>
-                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
-                        <div class="item-image">
-                            <img src="books_product_1777392577013.png" alt="Books Bundle">
-                        </div>
-                        <div class="item-body">
-                            <div class="item-cat">Bundles</div>
-                            <div class="item-title">Semester 4 Notes + Books</div>
-                            <div class="item-price">₹2,000</div>
-                            <div class="item-meta">
-                                <div class="user-meta">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Notes" alt="Seller">
-                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
-                                </div>
-                                <span class="dist-label">Campus Library</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="cta-group">
+                <a href="login.html" class="btn-primary">Join Your Campus</a>
+                <a href="app.html" class="btn-secondary">Explore Demo</a>
             </div>
+
+            <!-- Dashboard Preview Image -->
+            <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 1px solid var(--gray-200); position: relative; margin-top: 20px;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(to bottom, transparent 60%, white 100%); z-index:10;"></div>
+                <!-- Since we don't have a real screenshot, we create a mock UI wireframe using CSS -->
+                <div style="background: var(--bg-main); height: 400px; display:flex;">
+                    <div style="width: 20%; border-right: 1px solid var(--gray-200); padding: 20px;">
+                        <div style="width:80%; height:20px; background:var(--gray-200); border-radius:4px; margin-bottom:30px;"></div>
+                        <div style="width:100%; height:16px; background:var(--accent-red-light); border-radius:4px; margin-bottom:12px;"></div>
+                        <div style="width:90%; height:16px; background:var(--gray-200); border-radius:4px; margin-bottom:12px;"></div>
+                        <div style="width:95%; height:16px; background:var(--gray-200); border-radius:4px; margin-bottom:12px;"></div>
+                    </div>
+                    <div style="flex:1; padding:30px;">
+                        <div style="width:40%; height:32px; background:var(--gray-300); border-radius:8px; margin-bottom:20px;"></div>
+                        <div style="display:flex; gap:20px;">
+                            <div style="flex:1; height:120px; background:white; border-radius:12px; box-shadow:var(--shadow-sm);"></div>
+                            <div style="flex:1; height:120px; background:white; border-radius:12px; box-shadow:var(--shadow-sm);"></div>
+                            <div style="flex:1; height:120px; background:white; border-radius:12px; box-shadow:var(--shadow-sm);"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
-    </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="shopping-cart" size="28"></i></div>
+                <h3 class="feature-title">Smart Marketplace</h3>
+                <p class="feature-desc">Buy, sell, or rent laptops, books, and hostel essentials instantly. AI suggests fair prices and titles.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="alert-triangle" size="28"></i></div>
+                <h3 class="feature-title">Emergency Board</h3>
+                <p class="feature-desc">Exam tomorrow and calculator broke? Post an urgent request and get help from nearby hostels within minutes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="message-circle" size="28"></i></div>
+                <h3 class="feature-title">Deal Room</h3>
+                <p class="feature-desc">Negotiate securely in our built-in chat. Share locations and confirm transactions without sharing your phone number.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="gift" size="28"></i></div>
+                <h3 class="feature-title">Donation Hub</h3>
+                <p class="feature-desc">Seniors graduating? Donate old books and furniture to juniors directly through the platform.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="user-check" size="28"></i></div>
+                <h3 class="feature-title">Trust System</h3>
+                <p class="feature-desc">Zero scams. Only students with a verified .edu email can join. Every user has a reliability score and ratings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="award" size="28"></i></div>
+                <h3 class="feature-title">Gamified Rewards</h3>
+                <p class="feature-desc">Earn Campus Points for every successful deal or donation. Climb the leaderboard and unlock trusted badges.</p>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 60px 20px; color: var(--gray-500); border-top: 1px solid var(--gray-100); margin-top: 60px;">
+            <div class="logo-x" style="width: 32px; height: 32px; margin: 0 auto 16px;">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                    <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                    <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                    <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                </svg>
+            </div>
+            <p>© 2026 CampusXchange. Built for university communities.</p>
+        </footer>
+    </main>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
-
-        // Simple Interaction: Like button toggle
-        document.querySelectorAll('.save-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const icon = btn.querySelector('i');
-                if (btn.classList.contains('active')) {
-                    btn.classList.remove('active');
-                    btn.style.color = 'inherit';
-                    icon.setAttribute('fill', 'none');
-                } else {
-                    btn.classList.add('active');
-                    btn.style.color = '#E50914';
-                    icon.setAttribute('fill', '#E50914');
-                }
-                lucide.createIcons();
-            });
-        });
-
-        // Skeleton loading simulator - remove skeleton after "load"
-        setTimeout(() => {
-            document.querySelectorAll('.skeleton').forEach(el => {
-                // In a real app, this would be replaced by actual data
-            });
-        }, 2000);
     </script>
-    <script src="js/app.js"></script>
 </body>
 </html>
