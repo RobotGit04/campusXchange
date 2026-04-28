@@ -1,0 +1,20 @@
+{
+  "name": "campusxchange",
+  "version": "1.0.0",
+  "description": "Verified campus-only ecosystem for students",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx firebase-tools serve --only hosting",
+    "deploy": "npx firebase-tools deploy --only hosting"
+  },
+  "keywords": [
+    "campus",
+    "marketplace",
+    "university"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-tools": "^13.0.0"
+  }
+}
