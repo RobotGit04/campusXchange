@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CampusXchange - Everything You Need, Already On Campus</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons via CDN for simplicity in demo -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="#dashboard" class="logo-container">
+                <div class="logo-x">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Upper Red Arm -->
+                        <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                        <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                        <!-- Lower Black Arm -->
+                        <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                        <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="14" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                    </svg>
+                </div>
+                <div class="logo-text"><span>Campus</span><span>Xchange</span></div>
+            </a>
+
+            <nav class="nav-list">
+                <div class="nav-item"><a href="#dashboard" class="nav-link active"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></a></div>
+                <div class="nav-item"><a href="#browse" class="nav-link"><i data-lucide="search"></i> <span>Browse Items</span></a></div>
+                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="list"></i> <span>My Listings</span></a></div>
+                <div class="nav-item"><a href="#chat" class="nav-link"><i data-lucide="message-square"></i> <span>Messages</span></a></div>
+                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="heart"></i> <span>Saved Items</span></a></div>
+                <div class="nav-item"><a href="#dashboard" class="nav-link"><i data-lucide="repeat"></i> <span>Transactions</span></a></div>
+                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="star"></i> <span>Ratings</span></a></div>
+                <div class="nav-item"><a href="#profile" class="nav-link"><i data-lucide="user"></i> <span>My Profile</span></a></div>
+                <div class="nav-item"><a href="#admin" class="nav-link"><i data-lucide="settings"></i> <span>Settings</span></a></div>
+            </nav>
+
+            <div class="nav-item logout-link">
+                <a href="landing.html" class="nav-link"><i data-lucide="log-out"></i> <span>Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Area -->
+        <main class="main-content">
+            
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i data-lucide="search" size="18" stroke-width="2.5"></i>
+                    <input type="text" placeholder="Search for items, books, Laptops...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="post-btn">Post Item</button>
+                    <button class="icon-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <div class="user-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div id="app-content">
+            <div class="dashboard-view">
+
+                <!-- Brand Showcase Banner (Extra Section) -->
+                <section class="showcase-banner">
+                    <div class="showcase-grid">
+                        <div class="brand-showcase">
+                            <h2>Campus<span>Xchange</span></h2>
+                            <p>Everything You Need, Already On Campus.</p>
+                            <div style="display: flex; gap: 16px;">
+                                <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-100); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">
+                                    <i data-lucide="shield-check" style="color: #10B981;"></i> Verified Students Only
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; background: var(--gray-100); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">
+                                    <i data-lucide="map-pin" style="color: var(--primary-red);"></i> On-Campus Trade
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-visual">
+                            <div class="orbit-container">
+                                <div class="orbiting-node node-1"><i data-lucide="book-open"></i></div>
+                                <div class="orbiting-node node-2"><i data-lucide="laptop"></i></div>
+                                <div class="orbiting-node node-3"><i data-lucide="flask-conical"></i></div>
+                                <div class="orbiting-node node-4"><i data-lucide="calculator"></i></div>
+                                <div class="orbiting-node node-5"><i data-lucide="armchair"></i></div>
+                                <div class="orbiting-node node-6"><i data-lucide="home"></i></div>
+                            </div>
+                            <div class="giant-x">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                                    <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                                    <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                                    <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Welcome Section -->
+                <section class="welcome-sec">
+                    <h1>Welcome back, Aryan 👋</h1>
+                    <p>You have 3 new messages and a listing expiring soon.</p>
+                </section>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i data-lucide="layout"></i></div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Active Listings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i data-lucide="mail"></i></div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">New Messages</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i data-lucide="heart"></i></div>
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Saved Items</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i data-lucide="trending-up"></i></div>
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Transactions</div>
+                    </div>
+                </div>
+
+                <!-- My Active Listings -->
+                <div class="section-header">
+                    <h2>My Active Listings</h2>
+                    <a href="#" class="see-all">Manage All</a>
+                </div>
+
+                <div class="items-grid">
+                    <!-- Laptop Card -->
+                    <div class="item-card">
+                        <div class="badge active">ACTIVE</div>
+                        <div class="badge condition">EXCELLENT</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <!-- Image URL will be injected via JS or directly if known -->
+                            <img src="laptop_product_1777392447151.png" alt="Laptop">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Electronics</div>
+                            <div class="item-title">MacBook Air M1 - Silver</div>
+                            <div class="item-price">₹55,000</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">0.8 km away</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Books Card -->
+                    <div class="item-card">
+                        <div class="badge active">ACTIVE</div>
+                        <div class="badge condition">GOOD</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="books_product_1777392577013.png" alt="Engineering Books">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Textbooks</div>
+                            <div class="item-title">Engineering Mechanics Bundle</div>
+                            <div class="item-price">₹1,200</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">Hostel B</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Coat Card -->
+                    <div class="item-card">
+                        <div class="badge active">ACTIVE</div>
+                        <div class="badge condition">NEW</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="lab_coat_product_1777392875195.png" alt="Lab Coat">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Essentials</div>
+                            <div class="item-title">Standard White Lab Coat</div>
+                            <div class="item-price">₹450</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">1.2 km away</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Study Table Card -->
+                    <div class="item-card">
+                        <div class="badge active">ACTIVE</div>
+                        <div class="badge condition">EXCELLENT</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="study_table_product_1777392965322.png" alt="Study Table">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Furniture</div>
+                            <div class="item-title">Compact Wooden Study Desk</div>
+                            <div class="item-price">₹2,800</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Me">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">Hostel C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Panel -->
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="quick-grid">
+                    <div class="quick-action-card post" onclick="window.location.hash='#post'">
+                        <i data-lucide="plus-circle" size="32"></i>
+                        <h3>Post an Item</h3>
+                    </div>
+                    <div class="quick-action-card browse" onclick="window.location.hash='#browse'">
+                        <i data-lucide="search" size="32"></i>
+                        <h3>Browse Items</h3>
+                    </div>
+                    <div class="quick-action-card emergency" onclick="window.location.hash='#emergency'">
+                        <i data-lucide="alert-circle" size="32" style="color: #EF4444;"></i>
+                        <h3 style="color: #B91C1C;">Emergency Needs</h3>
+                    </div>
+                    <div class="quick-action-card donate" onclick="window.location.hash='#browse'">
+                        <i data-lucide="gift" size="32" style="color: #10B981;"></i>
+                        <h3 style="color: #065F46;">Donate an Item</h3>
+                    </div>
+                </div>
+
+                <!-- Recommended For You -->
+                <div class="section-header">
+                    <h2>Recommended For You</h2>
+                    <a href="#" class="see-all">View Suggestions</a>
+                </div>
+                <div class="items-grid">
+                    <!-- Backpack -->
+                    <div class="item-card">
+                        <div class="badge condition">LIKE NEW</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="backpack_product_1777393026909.png" alt="Backpack">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Accessories</div>
+                            <div class="item-title">Durable Campus Backpack</div>
+                            <div class="item-price">₹1,500</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sara" alt="Seller">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">0.5 km away</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator -->
+                    <div class="item-card">
+                        <div class="badge condition">GOOD</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="calculator_product_1777393287192.png" alt="Calculator">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Electronics</div>
+                            <div class="item-title">Scientific Calculator FX-991ES</div>
+                            <div class="item-price">₹800</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" alt="Seller">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">Hostel D</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cycle (Placeholder as generation failed but we'll use a neat box) -->
+                    <div class="item-card">
+                         <div class="badge condition">EXCELLENT</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image skeleton">
+                            <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--gray-400);">
+                                <i data-lucide="bike" size="48"></i>
+                            </div>
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Transportation</div>
+                            <div class="item-title">Hercules Geared Cycle</div>
+                            <div class="item-price">₹4,500</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Cycle" alt="Seller">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">2.1 km away</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bundle -->
+                    <div class="item-card">
+                        <div class="badge condition">LIKE NEW</div>
+                        <button class="save-btn"><i data-lucide="heart" size="18"></i></button>
+                        <div class="item-image">
+                            <img src="books_product_1777392577013.png" alt="Books Bundle">
+                        </div>
+                        <div class="item-body">
+                            <div class="item-cat">Bundles</div>
+                            <div class="item-title">Semester 4 Notes + Books</div>
+                            <div class="item-price">₹2,000</div>
+                            <div class="item-meta">
+                                <div class="user-meta">
+                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Notes" alt="Seller">
+                                    <span class="verified-badge"><i data-lucide="badge-check" size="14"></i></span>
+                                </div>
+                                <span class="dist-label">Campus Library</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Simple Interaction: Like button toggle
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const icon = btn.querySelector('i');
+                if (btn.classList.contains('active')) {
+                    btn.classList.remove('active');
+                    btn.style.color = 'inherit';
+                    icon.setAttribute('fill', 'none');
+                } else {
+                    btn.classList.add('active');
+                    btn.style.color = '#E50914';
+                    icon.setAttribute('fill', '#E50914');
+                }
+                lucide.createIcons();
+            });
+        });
+
+        // Skeleton loading simulator - remove skeleton after "load"
+        setTimeout(() => {
+            document.querySelectorAll('.skeleton').forEach(el => {
+                // In a real app, this would be replaced by actual data
+            });
+        }, 2000);
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

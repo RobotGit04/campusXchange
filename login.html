@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CampusXchange</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: var(--bg-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .auth-card {
+            background: var(--white);
+            padding: 48px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 480px;
+            border: 1px solid var(--gray-100);
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+        .form-control:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px var(--accent-red-light);
+        }
+        .btn-primary {
+            width: 100%;
+            background: var(--primary-red);
+            color: white;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            box-shadow: 0 4px 12px rgba(229, 9, 20, 0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(229, 9, 20, 0.3);
+            filter: brightness(1.1);
+        }
+        .logo-x {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 24px;
+        }
+        .auth-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .auth-subtitle {
+            color: var(--gray-500);
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <div class="logo-x">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 15 L85 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                <path d="M85 15 L15 85" stroke="var(--primary-red)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(0 0 50% 0)"/>
+                <path d="M15 15 L85 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+                <path d="M85 15 L15 85" stroke="var(--primary-black)" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter" clip-path="inset(50% 0 0 0)"/>
+            </svg>
+        </div>
+        
+        <h2 class="auth-title">CampusXchange</h2>
+        <p class="auth-subtitle">Verify your university email to join.</p>
+
+        <form id="loginForm">
+            <div class="form-group" id="emailStep">
+                <label class="form-label">University Email</label>
+                <div style="position: relative;">
+                    <i data-lucide="mail" style="position: absolute; left: 16px; top: 14px; color: var(--gray-400);"></i>
+                    <input type="email" id="emailInput" class="form-control" placeholder="student@university.edu" style="padding-left: 48px;" required>
+                </div>
+            </div>
+            
+            <div class="form-group" id="otpStep" style="display: none;">
+                <label class="form-label">Enter 6-Digit OTP</label>
+                <div style="position: relative;">
+                    <i data-lucide="key" style="position: absolute; left: 16px; top: 14px; color: var(--gray-400);"></i>
+                    <input type="text" id="otpInput" class="form-control" placeholder="123456" maxlength="6" style="padding-left: 48px; letter-spacing: 4px; font-weight: 700;">
+                </div>
+                <div style="text-align: right; margin-top: 8px;">
+                    <a href="#" style="color: var(--primary-red); font-size: 0.85rem; font-weight: 600; text-decoration: none;">Resend Code</a>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary" id="submitBtn">Send Verification Code</button>
+        </form>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const form = document.getElementById('loginForm');
+        const emailStep = document.getElementById('emailStep');
+        const otpStep = document.getElementById('otpStep');
+        const emailInput = document.getElementById('emailInput');
+        const submitBtn = document.getElementById('submitBtn');
+        let step = 1;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (step === 1) {
+                // Check for .edu domain natively in UI demo
+                const email = emailInput.value;
+                if (!email.endsWith('.edu')) {
+                    alert('Please use a valid university (.edu) email address.');
+                    return;
+                }
+
+                // Simulate sending OTP
+                submitBtn.innerHTML = '<i data-lucide="loader" class="spin"></i> Sending...';
+                lucide.createIcons();
+                
+                setTimeout(() => {
+                    emailInput.disabled = true;
+                    otpStep.style.display = 'block';
+                    submitBtn.textContent = 'Verify & Login';
+                    step = 2;
+                }, 1000);
+            } else {
+                // Simulate verification
+                submitBtn.innerHTML = '<i data-lucide="loader" class="spin"></i> Verifying...';
+                lucide.createIcons();
+
+                setTimeout(() => {
+                    // Redirect to dashboard
+                    window.location.href = 'index.html#dashboard';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
