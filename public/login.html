@@ -98,14 +98,14 @@
         </div>
         
         <h2 class="auth-title">CampusXchange</h2>
-        <p class="auth-subtitle">Verify your university email to join.</p>
+        <p class="auth-subtitle">Verify your university or institutional email to join.</p>
 
         <form id="loginForm">
             <div class="form-group" id="emailStep">
                 <label class="form-label">University Email</label>
                 <div style="position: relative;">
                     <i data-lucide="mail" style="position: absolute; left: 16px; top: 14px; color: var(--gray-400);"></i>
-                    <input type="email" id="emailInput" class="form-control" placeholder="student@university.edu" style="padding-left: 48px;" required>
+                    <input type="email" id="emailInput" class="form-control" placeholder="student@university.edu or institution@gmail.com" style="padding-left: 48px;" required>
                 </div>
             </div>
             
@@ -138,10 +138,12 @@
             e.preventDefault();
 
             if (step === 1) {
-                // Check for .edu domain natively in UI demo
+                // Check for .edu or gmail domain as requested
                 const email = emailInput.value;
-                if (!email.endsWith('.edu')) {
-                    alert('Please use a valid university (.edu) email address.');
+                const isValidDomain = email.endsWith('.edu') || email.endsWith('gmail.com');
+                
+                if (!isValidDomain) {
+                    alert('Please use a valid university (.edu) or institutional Gmail address.');
                     return;
                 }
 
